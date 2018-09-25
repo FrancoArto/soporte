@@ -22,7 +22,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">Configuracion</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Cerrar Sesion</a></li>
+            <li><a href="<?php echo site_url('/usuarios/Logout'); ?>">Cerrar Sesion</a></li>
           </ul>
         </li>
       </ul>

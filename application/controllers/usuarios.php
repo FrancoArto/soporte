@@ -82,6 +82,14 @@ class Usuarios extends CI_Controller {
 		}
 	}
 	
+	public function Logout(){
+		
+		$sesion = $this->session->userdata("usuario_id");
+		$this->session->unset_userdata($sesion);
+		
+		redirect('');
+	}
+	
 	public function listar(){
 		
 		$this->datos["lista"] = $this->usuarios_model->listado();
