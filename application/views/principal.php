@@ -1,4 +1,4 @@
-
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -17,10 +17,12 @@
 <style type="text/css">
 
 body{
-
-        margin: 0;
-        display: unset;
-		background-color:#364562;
+		min-width: 0;
+		max-width: 100%;
+		width: auto;
+		background-color:#333;
+		font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+		
 		
     
     }
@@ -38,15 +40,23 @@ border-color:#151525;
 
 </style>
 
- 
+ <script type="text/javascript">
+	function focoInput(id){
+		document.getElementById(id).className='input-group-addon alert-info';
+		}
+	function blurInput(id){
+		document.getElementById(id).className = 'input-group-addon';
+		}
+</script>
 </head>
 
 <body>
    
-        <div class="container" style="width:100%" >
+        	
+           <legend style="letter-spacing:15px; font-size:36px">INCIDENCIAS</legend>
            
-                
-                <div class="col-md-5" style="height:100%;background-color:#151525; width:45%; background-color:#182739;">
+                <div class="col-md-1"></div>
+                <div class="col-md-5" style="height:100%; border-style:groove">
                 
                 	 <br>
                             		<legend>GENERAR TICKET ANONIMO</legend>
@@ -58,7 +68,7 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtTitulo" name="txtTitulo" type="text" placeholder="Ingrese titulo..." class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sTitulo"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtTitulo" name="txtTitulo" type="text" placeholder="Ingrese titulo..." onfocus="focoInput('sTitulo');" onBlur="blurInput('sTitulo')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
@@ -69,7 +79,7 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtDescripcion" name="txtDescripcion" type="text" placeholder="Ingrese descripcion..." class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sDescripcion"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtDescripcion" name="txtDescripcion" type="text" placeholder="Ingrese descripcion..." onfocus="focoInput('sDescripcion');" onBlur="blurInput('sDescripcion')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
@@ -80,7 +90,7 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtQuienSolicita" name="txtQuienSolicita" type="text" placeholder="Quien lo solicita?" class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sQuien"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtQuienSolicita" name="txtQuienSolicita" type="text" placeholder="Quien lo solicita?" onfocus="focoInput('sQuien');" onBlur="blurInput('sQuien')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
@@ -91,7 +101,7 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtSector" name="txtSector" type="text" placeholder="Ingrese sector..." class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sSector"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtSector" name="txtSector" type="text" placeholder="Ingrese sector..." onfocus="focoInput('sSector');" onBlur="blurInput('sSector')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
@@ -103,7 +113,7 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtPrioridad" name="txtPrioridad" type="text" placeholder="Ingrese prioridad..." class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sPrioridad"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtPrioridad" name="txtPrioridad" type="text" placeholder="Ingrese prioridad..." onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
@@ -114,18 +124,18 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="text" placeholder="Para cuando se solicita?" class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sCuando"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="text" placeholder="Para cuando se solicita?" onfocus="focoInput('sCuando');" onBlur="blurInput('sCuando')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
                         
-                        <div class="form-group">
+                        <div class="form-group" style="text-align:center">
                         <div class="row">
                         <br>
-                        	<div class="col-md-5"></div>
-                            <div class="col-md-7">
-                        	<button id="btnGenerar" name="generar" class="btn btn-primary btn-lg">GENERAR</button>
-                            </div>
+                        
+                          
+                        	<button id="btnGenerar" name="generar" class="btn alert-info btn-lg">GENERAR</button>
+                           
                          </div>        
                          </div>   
                 
@@ -134,17 +144,16 @@ border-color:#151525;
                <div class="col-md-1"></div>
                
                
-                <div class="col-md-4" style="height:100%; width:45%; background-color:#182739;">
+                <div class="col-md-4" style="height:100%; border-style:groove">
                 
-                    <div class="row" style="height:48%">
+                    <div class="row" style="height:50%;">
                   			
                             <br>
-           		  <legend>COMPLETE CON SUS DATOS</legend>
+                            		<legend>COMPLETE CON SUS DATOS</legend>
                           
 
-                            
+                   <form action="<?php echo site_url("usuarios/Login") ?>" method="post" autocomplete="on">
                             <!--email-->
-                <form action="<?php echo site_url("usuarios/Login") ?>" method="post" autocomplete="on">
            			<div class="form-group">
                             <br><br>
                          <div class="row">
@@ -152,8 +161,8 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-user" ></i></span>
-                            <input id="txtEmail" name="txtEmail" type="text" placeholder="Ingrese email..." class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sEmail"><i class="glyphicon glyphicon-user" ></i></span>
+                            <input id="txtEmail" name="txtEmail" type="text" placeholder="Ingrese email..." onfocus="focoInput('sEmail');" onBlur="blurInput('sEmail')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div>
                     
                         </div>
@@ -168,8 +177,8 @@ border-color:#151525;
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
                             <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-asterisk" ></i></span>
-                            <input id="txtPassword" name="txtPassword" type="password" placeholder="Ingrese password..." class="form-control input-lg txt">
+                            <span class="input-group-addon" id="sPass"><i class="glyphicon glyphicon-asterisk" ></i></span>
+                            <input id="txtPassword" name="txtPassword" type="password" placeholder="Ingrese password..." onfocus="focoInput('sPass');" onBlur="blurInput('sPass')" class="form-control input-lg txt">
                         </div>
                           </div>
                         </div>
@@ -179,12 +188,10 @@ border-color:#151525;
                   <div class="row">
                   <br><br>
                
-                  <div class="form-group">
-                      <div class="col-md-5"></div>
-                      <div class="col-md-4">
-                        <button type="submit" id="btnIngresar" name="ingresar" class="btn btn-primary btn-lg">INGRESAR</button>
-                        </form>
-          </div>
+                  <div class="form-group"  style="text-align:center">
+                      
+                        <button id="btnIngresar" name="btningresar" class="btn alert-info btn-lg">INGRESAR</button>
+                      </form>
                    </div>
                    
                    </div>
@@ -192,9 +199,9 @@ border-color:#151525;
                    
                     
                     
-                    <div class="row" style="height:4%; background-color:#364562;"></div>
+                 <br>
                     
-                    <div class="row" style="height:48%">
+                    <div class="row" style="height:50%">
                   			<br>
                             <legend>SEGUIMIENTO DE TICKET</legend>
                             
@@ -205,8 +212,8 @@ border-color:#151525;
                                             <div class="col-md-8">
                                         
                                             <div class="input-group">
-                                                <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-barcode" ></i></span>
-                                                <input id="txtTicket" name="txtTicket" type="text" placeholder="Ingrese el codigo del ticket" class="form-control input-lg txt">
+                                                <span class="input-group-addon" id="sTicket"><i class="glyphicon glyphicon-barcode" ></i></span>
+                                                <input id="txtTicket" name="txtTicket" type="text" placeholder="Ingrese el codigo del ticket" onfocus="focoInput('sTicket');" onBlur="blurInput('sTicket')" class="form-control input-lg txt">
                                         </div>
                                     
                                         </div>
@@ -214,23 +221,23 @@ border-color:#151525;
                     
                         </div>
                                         <div class="row">
-                                  <br><br>
+                                  <br>
                                
-                                  <div class="form-group">
-                                      <div class="col-md-5"></div>
-                                      <div class="col-md-4">
-                                        <button id="btnBuscar" name="buscar" class="btn btn-primary btn-lg">BUSCAR</button>
-                                      </div>
+                                  <div class="form-group"  style="text-align:center">
+                                   
+                                        <button id="btnBuscar" name="buscar" class="btn alert-info btn-lg">BUSCAR</button>
+                                     
                                    </div>
                                    
                                    </div>
                                   </div>
-                        
+                                
+                        <br>
                     </div>
                     
                  
               
-            </div>
+       
        
  
 </body>

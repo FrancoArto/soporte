@@ -15,45 +15,93 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<style type="text/css">
+
+body{
+		min-width: 0;
+		max-width: 100%;
+		width: auto;
+		background-color:#333;
+		font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+		
+		
+    
+    }
+legend{
+		text-align:center;
+		color:#FFFFFF;
+	}
+
+	
+.txt{ background-color:#1D1E1E;
+color:#313131;
+border:inset;
+border-color:#151525;
+}
+
+
+</style>
+
+<script type="text/javascript">
+	function focoInput(id){
+		document.getElementById(id).className='input-group-addon alert-info';
+		}
+	function blurInput(id){
+		document.getElementById(id).className = 'input-group-addon';
+		}
+</script>
 
 </head>
 
 <body>
+<br>
+<legend style="letter-spacing:15px; font-size:36px">REGISTRO</legend>
 <div class="container">
-	<div class="row">
-    	<div class="col-md-12">
-			<?php $this->load->view('barraadmin'); ?>
-        </div>
+	
     <div class="row">
 		<div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="text-align:center">
             <form method="post" action="<?php echo site_url("usuarios/agregar");?>">
+            	<br>
               <div class="form-group">
-                <label>USUARIO:</label>
-                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario">
-              </div>
+               <div class="input-group">
+                <span class="input-group-addon" id="sUsuario"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <input type="text" class="form-control" onfocus="focoInput('sUsuario');" onBlur="blurInput('sUsuario')" id="usuario" name="usuario" placeholder="Usuario...">
+              </div></div><br>
               <div class="form-group">
-                <label>Password:</label>
-                <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
-              </div>
+                <div class="input-group">
+                <span class="input-group-addon" id="sPass"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <input type="password" class="form-control" onfocus="focoInput('sPass');" onBlur="blurInput('sPass')" id="pass" name="pass" placeholder="Password...">
+              </div></div><br>
               <div class="form-group">
-                <label>NOMBRE:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre">
-              </div>
+                <div class="input-group">
+                <span class="input-group-addon" id="sNombre"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <input type="text" class="form-control" onfocus="focoInput('sNombre');" onBlur="blurInput('sNombre')" id="nombre" name="nombre" placeholder="Nombre...">
+              </div></div><br>
               <div class="form-group">
-                <label>SECTOR:</label>
-                <input type="text" class="form-control" id="sector" name="sector" placeholder="sector">
-              </div>
+                <div class="input-group">
+                <span class="input-group-addon" id="sSector"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <input type="text" class="form-control" onfocus="focoInput('sSector');" onBlur="blurInput('sSector')" id="sector" name="sector" placeholder="Sector...">
+              </div></div><br>
               <div class="form-group">
-                <label>EMAIL:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="email">
-              </div>
-              <button type="submit" class="btn btn-default">REGISTRAR</button>
+                <div class="input-group">
+                <span class="input-group-addon" id="sEmail"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <input type="text" class="form-control" onfocus="focoInput('sEmail');" onBlur="blurInput('sEmail')" id="email" name="email" placeholder="Email...">
+              </div></div><br>
+              
+              
+              <button type="submit" class="btn alert-info btn-lg">REGISTRARSE</button>
+              
             </form>
+            
+            
+            <br><br><br><br><br><br>
+            <hr width="50%" style="border-color:gray">
+            <span  style="color:gray"><i>Copyright </i> &copy - Designed by Analistas Hilet</span>
+          
         </div>
         <div class="col-md-2"></div>    
     </div>
-</div>
 
 
 </body>
