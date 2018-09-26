@@ -10,11 +10,24 @@ class Usuarios extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('registro');
+		if($sesion = $this->session->userdata("usuario_id"))
+		{
+			$this->load->view('usuario');
+		}
 	}
 	
 	public function Agregar(){
 		
+		$rol = $this->session->userdata("rol");
+		
+		if($rol == 'A')
+		{
+			$this->load->view('registro');
+		}
+		else
+		{
+			redirect('#');	
+		}
 		
 		
 		$this->load->library("form_validation");
@@ -47,7 +60,10 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules('txtEmail', 'Email', 'required|trim');
 		$this->form_validation->set_rules('txtPassword', 'Pass', 'required|trim');
 		
-		$this->form_validation->run();
+		if(!$this->form_validation->run())
+		{
+			redirect('');
+		}
 		
 		$login = array();
 		
@@ -56,25 +72,24 @@ class Usuarios extends CI_Controller {
 		
 		$datos = array();
 		
+		
 		if($datos = $this->usuarios_model->obtener_por_email($login["email"]))
-		{
-			if($datos["password"] == $login["password"])
 			{
-				if($datos["estado"] == 1)
+				if($datos["password"] == $login["password"])
 				{
-					$this->session->set_userdata($datos);
-					
-					
-					$this->usuarios_model->modificacion($datos["usuario_id"], $datos, true);
-					
-					if($datos["rol"] == 'A')
+					if($datos["estado"] == 1)
 					{
-						$this->load->view('usuarioA');
+						$this->session->set_userdata($datos);
+						
+						
+						$this->usuarios_model->modificacion($datos["usuario_id"], $datos, true);
+						
+						redirect('usuarios/index');				
 					}
 					else
 					{
-						$this->load->view('usuarioU');
-					}				
+						redirect('');
+					}
 				}
 				else
 				{
@@ -85,12 +100,8 @@ class Usuarios extends CI_Controller {
 			{
 				redirect('');
 			}
-		}
-		else
-		{
-			redirect('');
-		}
 	}
+	
 	
 	public function Logout(){
 		
@@ -101,9 +112,19 @@ class Usuarios extends CI_Controller {
 	}
 	
 	public function listar(){
+		$rol = $this->session->userdata("rol");
 		
-		$this->datos["lista"] = $this->usuarios_model->listado();
-		$this->load->view('listaUsuarios', $this->datos);
+		if($rol == 'A')
+		{
+			$this->datos["lista"] = $this->usuarios_model->listado();
+			$this->load->view('listaUsuarios', $this->datos);
+		}
+		else
+		{
+			redirect('#');	
+		}
+		
+		
 	}
 	
 	public function baja($usuario_id = ""){
@@ -126,7 +147,16 @@ class Usuarios extends CI_Controller {
 	
 	public function modificar($usuario_id = ""){
 		
-		$this->load->view('modificar');
+		if($rol == 'A')
+		{
+			$this->load->view('modificar');		
+		}
+		else
+		{
+			redirect('#');	
+		}
+		
+		
 		
 		
 		}
