@@ -76,12 +76,12 @@ class Usuarios extends CI_Controller {
 			}
 			else
 			{
-				redirect('/ERROR');
+				redirect('');
 			}
 		}
 		else
 		{
-			redirect('/ERROR1');
+			redirect('');
 		}
 	}
 	
