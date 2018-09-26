@@ -38,19 +38,20 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules('sector', 'Sector', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim');
 		
-		$this->form_validation->run();
-		
-		$datos = array();
-		
-		$datos["usuario"] =set_value("usuario");
-		$datos["password"] =set_value("pass");
-		$datos["nombre"] =set_value("nombre");
-		$datos["sector"] =set_value("sector");
-		$datos["email"] =set_value("email");
+		if($this->form_validation->run()){
 			
-		$this->usuarios_model->alta($datos);
-		
-		redirect('usuarios/index/OK');	
+			$datos = array();
+			
+			$datos["usuario"] =set_value("usuario");
+			$datos["password"] =set_value("pass");
+			$datos["nombre"] =set_value("nombre");
+			$datos["sector"] =set_value("sector");
+			$datos["email"] =set_value("email");
+				
+			$this->usuarios_model->alta($datos);
+			redirect('usuarios/agregar/OK');
+		}
+				
 	}
 	
 	public function Login()
@@ -145,19 +146,39 @@ class Usuarios extends CI_Controller {
 		redirect("usuarios/listar");
 	}
 	
+	public function TraerUsuario($usuario_id = ""){
+		
+		$this->datos["usuario"] = $this->usuarios_model->obtener_por_id($usuario_id);
+		
+		$this->load->view('modificar', $this->datos);
+		
+		
+		
+		}
+		
 	public function modificar($usuario_id = ""){
 		
-		if($rol == 'A')
-		{
-			$this->load->view('modificar');		
+		$this->load->library("form_validation");
+		
+		$this->form_validation->set_rules('usuario', 'Usuario', 'trim');
+		$this->form_validation->set_rules('pass', 'Pass', 'trim');
+		$this->form_validation->set_rules('nombre', 'Nombre', 'trim');
+		$this->form_validation->set_rules('sector', 'Sector', 'trim');
+		$this->form_validation->set_rules('email', 'Email', 'trim');
+		
+		if($this->form_validation->run()){
+			$datos = array();
+			$datos["usuario"] = set_value("usuario");
+			$datos["password"] = set_value("pass");
+			$datos["nombre"] =set_value("nombre");
+			$datos["sector"] =set_value("sector");
+			$datos["email"] =set_value("email");
+			
+			$this->usuarios_model->modificacion($usuario_id, $datos);
+			
+			redirect('usuarios/listar');
+		}else{
+			redirect('usuarios/traerusuario/ERROR');	
 		}
-		else
-		{
-			redirect('#');	
-		}
-		
-		
-		
-		
-		}
+	}
 }
