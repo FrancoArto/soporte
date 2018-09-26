@@ -15,6 +15,38 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
+
+<style type="text/css">
+
+body{
+		min-width: 0;
+		max-width: 100%;
+		width: auto;
+		background-color:#333;
+		font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+		
+		
+    
+    }
+legend{
+		text-align:center;
+		color:#FFFFFF;
+	}
+	
+h1{ 
+color:#FFFFFF;
+letter-spacing:15px;
+
+		
+}
+
+
+
+</style>
+
+
+
 </head>
 
 <body>
@@ -24,7 +56,7 @@
         	<div class="col-md-2"></div>
             <div class="col-md-8">
             	<h1>ACTIVOS</h1>
-                <table class="table table-hover">
+                <table class="table" style="color:#FFFFFF">
                 <tr>
                     <th>Usuario</th>
                     <th>Password</th>
@@ -61,15 +93,16 @@
         <div class="row">
         	<div class="col-md-2"></div>
         	<div class="col-md-2">
-            	<a class="btn btn bg-primary" href="<?php echo site_url('usuarios/index'); ?>">Nuevo Usuario</a>
+            	<a class="btn btn bg-primary" href="<?php echo site_url('usuarios/agregar'); ?>">Nuevo Usuario</a>
             </div>
             <div class="col-md-8"></div>
         </div>
+        <br><br><br>
         <div class="row">
         	<div class="col-md-2"></div>
             <div class="col-md-8">
             	<h1>INACTIVOS</h1>
-                <table class="table table-hover">
+                <table class="table" style="color:#FFFFFF">
                 <tr>
                     <th>Usuario</th>
                     <th>Password</th>
