@@ -60,19 +60,26 @@ class Usuarios extends CI_Controller {
 		{
 			if($datos["password"] == $login["password"])
 			{
-				$this->session->set_userdata($datos);
-				
-				
-				$this->usuarios_model->modificacion($datos["usuario_id"], $datos, true);
-				
-				if($datos["rol"] == 'A')
+				if($datos["estado"] == 1)
 				{
-					$this->load->view('usuarioA');
+					$this->session->set_userdata($datos);
+					
+					
+					$this->usuarios_model->modificacion($datos["usuario_id"], $datos, true);
+					
+					if($datos["rol"] == 'A')
+					{
+						$this->load->view('usuarioA');
+					}
+					else
+					{
+						$this->load->view('usuarioU');
+					}				
 				}
 				else
 				{
-					$this->load->view('usuarioU');
-				}				
+					redirect('');
+				}
 			}
 			else
 			{
