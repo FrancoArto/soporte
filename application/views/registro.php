@@ -54,10 +54,10 @@ border-color:#151525;
 </head>
 
 <body>
+<?php $this->load->view('barraadmin'); ?>
 <br>
-<legend style="letter-spacing:15px; font-size:36px">REGISTRO</legend>
-<div class="container">
-	
+<legend style="letter-spacing:15px; font-size:36px">NUEVO USUARIO</legend>
+<div class="container">	
     <div class="row">
 		<div class="col-md-2"></div>
         <div class="col-md-8" style="text-align:center">
@@ -90,7 +90,7 @@ border-color:#151525;
               </div></div><br>
               
               
-              <button type="submit" class="btn alert-info btn-lg">REGISTRARSE</button>
+              <button type="submit" class="btn alert-info btn-lg">CREAR USUARIO</button>
               
             </form>
             

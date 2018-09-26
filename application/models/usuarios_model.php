@@ -37,6 +37,22 @@ class Usuarios_model extends CI_Model {
 		}
 	}
 	
+	function activar($usuario_id = "", $estado = 1)
+	{
+		$this->db->where("usuario_id", $usuario_id);
+		$this->db->limit(1);
+		$this->db->set("estado", $estado);
+		$this->db->update("usuarios");
+		
+		//forma de confirmar si el delet se realizo
+		if($this->db->affected_rows())
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	function modificacion($usuario_id = "", $datos = array(), $updatelogin = false)
 	{
 		foreach($datos as $nombre=>$valor)
@@ -64,7 +80,7 @@ class Usuarios_model extends CI_Model {
 	
 	function listado($orden = "usuario", $sentido = "ASC", $estado=1)
 	{
-		$this->db->where("estado", $estado);
+		//$this->db->where("estado", $estado);
 		$this->db->order_by($orden,$sentido);
 		
 		$datos = $this->db->get("usuarios");

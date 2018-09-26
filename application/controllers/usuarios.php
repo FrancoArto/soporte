@@ -14,6 +14,9 @@ class Usuarios extends CI_Controller {
 	}
 	
 	public function Agregar(){
+		
+		
+		
 		$this->load->library("form_validation");
 		
 		$this->form_validation->set_rules('usuario', 'Usuario', 'required|trim');
@@ -104,4 +107,20 @@ class Usuarios extends CI_Controller {
 		
 		redirect("usuarios/listar");
 	}
+	
+	public function activar($usuario_id = ""){
+		
+		if($usuario_id!=""){
+			$this->usuarios_model->activar($usuario_id);
+		}
+		
+		redirect("usuarios/listar");
+	}
+	
+	public function modificar($usuario_id = ""){
+		
+		$this->load->view('modificar');
+		
+		
+		}
 }
