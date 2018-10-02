@@ -147,11 +147,18 @@ class Usuarios extends CI_Controller {
 	}
 	
 	public function TraerUsuario($usuario_id = ""){
+		$rol = $this->session->userdata("rol");
 		
-		$this->datos["usuario"] = $this->usuarios_model->obtener_por_id($usuario_id);
+		if($rol == 'A')
+		{
+			$this->datos["usuario"] = $this->usuarios_model->obtener_por_id($usuario_id);
 		
-		$this->load->view('modificar', $this->datos);
-		
+			$this->load->view('modificar', $this->datos);
+		}
+		else
+		{
+			Redirect('#');
+		}
 		
 		
 		}
