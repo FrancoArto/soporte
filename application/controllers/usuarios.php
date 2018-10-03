@@ -53,6 +53,10 @@ class Usuarios extends CI_Controller {
 			$this->usuarios_model->alta($datos);
 			redirect('usuarios/agregar/OK');
 		}
+		else
+		{
+			redirect('usuarios/agregar/ERRORCAMPOS');
+		}
 				
 	}
 	
@@ -108,9 +112,8 @@ class Usuarios extends CI_Controller {
 	
 	public function Logout(){
 		
-		$sesion = $this->session->userdata("usuario_id");
-		$this->session->unset_userdata($sesion);
-		
+		$this->session->sess_destroy();
+				
 		redirect('');
 	}
 	
