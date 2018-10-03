@@ -60,7 +60,7 @@ border-color:#151525;
                 
                 	 <br>
                             		<legend>GENERAR TICKET ANONIMO</legend>
-                                    
+                             <form action="<?php echo site_url("tickets/Agregar") ?>" method="post" autocomplete="on">
                                     <div class="form-group">
                             <br>
                          <div class="row">
@@ -138,7 +138,7 @@ border-color:#151525;
                            
                          </div>        
                          </div>   
-                
+                </form>
                 </div>
                
                <div class="col-md-1"></div>
