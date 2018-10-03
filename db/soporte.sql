@@ -2,10 +2,10 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 03, 2018 at 03:56 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Servidor: localhost
+-- Tiempo de generación: 03-10-2018 a las 11:39:55
+-- Versión del servidor: 5.5.60-log
+-- Versión de PHP: 5.6.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `soporte`
+-- Base de datos: `w6000053_soporte`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estados`
+-- Estructura de tabla para la tabla `estados`
 --
 
 CREATE TABLE `estados` (
@@ -34,20 +34,20 @@ CREATE TABLE `estados` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `estados`
+-- Volcado de datos para la tabla `estados`
 --
 
 INSERT INTO `estados` (`estado_id`, `nombre`) VALUES
-(1, 'Finalizado'),
-(2, 'Detenido'),
-(3, 'Pendiente'),
-(4, 'En Curso'),
-(5, 'Cancelado');
+(1, 'Pendiente'),
+(2, 'En Curso'),
+(3, 'Detenido'),
+(4, 'Cancelado'),
+(5, 'Finalizado');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Estructura de tabla para la tabla `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -67,7 +67,7 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tickets`
+-- Volcado de datos para la tabla `tickets`
 --
 
 INSERT INTO `tickets` (`ticket_id`, `fecha_inicio`, `fecha_fin`, `quien`, `titulo`, `descripcion`, `solucion`, `sector`, `prioridad`, `estado`, `asignado`, `fecha_limite`, `creador`) VALUES
@@ -78,7 +78,7 @@ INSERT INTO `tickets` (`ticket_id`, `fecha_inicio`, `fecha_fin`, `quien`, `titul
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -94,7 +94,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`usuario_id`, `usuario`, `password`, `ult_login`, `rol`, `estado`, `nombre`, `sector`, `email`) VALUES
@@ -103,45 +103,45 @@ INSERT INTO `usuarios` (`usuario_id`, `usuario`, `password`, `ult_login`, `rol`,
 (3, 'Matias', '123456', '2018-09-26 10:25:29', 'U', 0, 'Matias', 'oficina', 'mati@gmail.com');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `estados`
+-- Indices de la tabla `estados`
 --
 ALTER TABLE `estados`
   ADD PRIMARY KEY (`estado_id`);
 
 --
--- Indexes for table `tickets`
+-- Indices de la tabla `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`ticket_id`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`usuario_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `estados`
+-- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
   MODIFY `estado_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tickets`
+-- AUTO_INCREMENT de la tabla `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
