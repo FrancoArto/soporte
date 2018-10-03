@@ -54,7 +54,7 @@ border-color:#151525;
 </head>
 
 <body>
-<?php $this->load->view('barraadmin'); ?>
+<?php $this->load->view('barra'); ?>
 <br>
 <legend style="letter-spacing:15px; font-size:36px">NUEVO USUARIO</legend>
 <div class="container">	
@@ -88,6 +88,14 @@ border-color:#151525;
                 <span class="input-group-addon" id="sEmail"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sEmail');" onBlur="blurInput('sEmail')" id="email" name="email" placeholder="Email...">
               </div></div><br>
+              <div class="form-group">
+                <div class="input-group">
+                <span class="input-group-addon" id="sRol"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <select class="form-control" onfocus="focoInput('sRol');" onBlur="blurInput('sRol')" id="rol" name="rol">
+                	<option value="A">Administrador</option>
+                    <option value="U">Usuario</option>                    
+                </select>
+              </div></div><br>
               
               
               <button type="submit" class="btn alert-info btn-lg">CREAR USUARIO</button>
@@ -95,7 +103,7 @@ border-color:#151525;
             </form>
             
             
-            <br><br><br><br><br><br>
+            <br><br><br><br>
             <hr width="50%" style="border-color:gray">
             <span  style="color:gray"><i>Copyright </i> &copy - Designed by Analistas Hilet</span>
           

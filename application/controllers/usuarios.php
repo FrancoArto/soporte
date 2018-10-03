@@ -37,6 +37,7 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
 		$this->form_validation->set_rules('sector', 'Sector', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('rol', 'Rol', 'required|trim');
 		
 		if($this->form_validation->run()){
 			
@@ -47,6 +48,7 @@ class Usuarios extends CI_Controller {
 			$datos["nombre"] =set_value("nombre");
 			$datos["sector"] =set_value("sector");
 			$datos["email"] =set_value("email");
+			$datos["rol"] = set_value("rol");
 				
 			$this->usuarios_model->alta($datos);
 			redirect('usuarios/agregar/OK');
