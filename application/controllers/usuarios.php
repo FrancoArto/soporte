@@ -53,6 +53,10 @@ class Usuarios extends CI_Controller {
 			$this->usuarios_model->alta($datos);
 			redirect('usuarios/agregar/OK');
 		}
+		else
+		{
+			redirect('usuarios/agregar/ERRORCAMPOS');
+		}
 				
 	}
 	
@@ -91,26 +95,25 @@ class Usuarios extends CI_Controller {
 					}
 					else
 					{
-						redirect('');
+						redirect('usuarios/index/INACTIVO');
 					}
 				}
 				else
 				{
-					redirect('');
+					redirect('usuarios/index/ERRORCRED');
 				}
 			}
 			else
 			{
-				redirect('');
+				redirect('usuarios/index/ERRORCRED');
 			}
 	}
 	
 	
 	public function Logout(){
 		
-		$sesion = $this->session->userdata("usuario_id");
-		$this->session->unset_userdata($sesion);
-		
+		$this->session->sess_destroy();
+				
 		redirect('');
 	}
 	
@@ -124,7 +127,7 @@ class Usuarios extends CI_Controller {
 		}
 		else
 		{
-			redirect('#');	
+			redirect('usuarios/index/PROHIBIDO');	
 		}
 		
 		
@@ -159,7 +162,7 @@ class Usuarios extends CI_Controller {
 		}
 		else
 		{
-			Redirect('#');
+			Redirect('usuarios/index/PROHIBIDO');
 		}
 		
 		
