@@ -10,7 +10,11 @@ class Tickets extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('principal');
+		
+		if ($this->session->userdata("email"))
+			redirect('usuarios/index');
+		else
+			$this->load->view('principal');
 	}
 	
 	public function Agregar(){
@@ -39,6 +43,33 @@ class Tickets extends CI_Controller {
 			$datos["creador"] =2;
 			
 		$this->ticket_model->alta($datos);
+		
+		redirect('tickets');	
+	}
+	
+	public function Modificar(){
+		$this->load->library("form_validation");
+		
+		$this->form_validation->set_rules('txtQuienSolicita', 'txtQuienSolicita', 'required|trim');
+		$this->form_validation->set_rules('txtTitulo', 'txtTitulo', 'required|trim');
+		$this->form_validation->set_rules('txtDescripcion', 'txtDescripcion', 'required|trim');
+		$this->form_validation->set_rules('txtSector', 'txtSector', 'required|trim');
+		$this->form_validation->set_rules('txtPrioridad', 'txtPrioridad', 'required|trim');
+		$this->form_validation->set_rules('fecha_limite', 'txtParaCuando', 'required|trim');
+		
+		$this->form_validation->run();
+		
+		$datos = array();
+		
+		$datos["quien"] =set_value("txtQuienSolicita");
+		$datos["titulo"] =set_value("txtTitulo");
+		$datos["descripcion"] =set_value("txtDescripcion");
+		$datos["sector"] =set_value("txtSector");
+		$datos["prioridad"] =set_value("txtPrioridad");
+		$datos["fecha_limite"] =set_value("fecha_limite");
+		$datos["creador"] =$this->session->userdata("usuario_id");
+			
+		$this->ticket_model->modificacion($datos);
 		
 		redirect('tickets');	
 	}
