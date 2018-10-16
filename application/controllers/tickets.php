@@ -73,4 +73,34 @@ class Tickets extends CI_Controller {
 		
 		redirect('tickets');	
 	}
+	
+	public function listar(){
+		$rol = $this->session->userdata("rol");
+		$usuario_id = $this->session->userdata("usuario_id");
+		if($rol == 'A')
+		{
+			$this->datos["lista"] = $this->ticket_model->listado();
+			
+			$this->load->view('listaTickets', $this->datos);
+		}
+		else
+		{
+			if ($rol == 'U'){
+				$this->datos["lista"] = $this->ticket_model->listado("estado","ASC",$usuario_id);
+				
+				$this->load->view('listaTickets', $this->datos);
+			}else{
+				redirect('#');
+			}	
+		}	
+	}
+	
+	public function baja($usuario_id = ""){
+		
+		if($usuario_id!=""){
+			$this->ticket_model->baja($usuario_id);
+		}
+		
+		redirect("tickets/listar");
+	}
 }

@@ -48,12 +48,18 @@ class Ticket_model extends CI_Model {
 		}
 	}
 	
-	function listado($orden = "fecha_inicio", $sentido = "ASC")
+	function listado($orden = "estado", $sentido = "ASC", $usuario_id = "")
 	{
-		$this->db->order_by($orden,$sentido);
+		if ($usuario_id == ""){
+			$this->db->order_by($orden,$sentido);
+			
+			$datos = $this->db->get("Tickets");
+		}else{
+			$this->db->where("creador", $usuario_id);
+			$this->db->order_by($orden,$sentido);
 		
-		$datos = $this->db->get("Tickets");
-		
+			$datos = $this->db->get("Tickets");
+		}
 		//forma de obtener de los datos 
 		if($datos->num_rows())
 		{

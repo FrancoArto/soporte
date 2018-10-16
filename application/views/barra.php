@@ -2,9 +2,9 @@
 
 <ul class="nav navbar-nav">
         <li class="navbar-brand"><label>Bienvenido</label></li>
-        <li><a href="#">Nuevo ticket</a></li>
-        <?php if($this->session->userdata("rol") == 'U'){ ?><li><a href="#">Mis tickets</a></li><?php } ?>
-        <?php if($this->session->userdata("rol") == 'A'){ ?><li><a href="#">Lista de tickets</a></li>
+        <li><a href="<?php echo site_url("usuarios"); ?>">Nuevo ticket</a></li>
+        <?php if($this->session->userdata("rol") == 'U'){ ?><li><a href="<?php echo site_url("tickets/listar")?>">Mis tickets</a></li><?php } ?>
+        <?php if($this->session->userdata("rol") == 'A'){ ?><li><a href="<?php echo site_url("tickets/listar")?>">Lista de tickets</a></li>
       	<li><a href="<?php echo site_url("usuarios/listar"); ?>">Administrar usuarios</a></li> <?php } ?>
         
       </ul>
