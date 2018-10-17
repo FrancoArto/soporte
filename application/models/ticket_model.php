@@ -28,16 +28,16 @@ class Ticket_model extends CI_Model {
 		}
 	}
 	
-	function modificacion($usuario_id = "", $datos = array())
+	function modificacion($ticket_id = "", $datos = array())
 	{
 		foreach($datos as $nombre=>$valor)
 		{
 			$this->db->set($nombre, $valor);
 		}
 		
-		$this->db->where("ticket_id", $usuario_id);
+		$this->db->where("ticket_id", $ticket_id);
 		
-		$this->db->update("Tickets");
+		$this->db->update("tickets");
 		
 	    //forma de confirmar si el update se realizo
 		if($this->db->affected_rows())

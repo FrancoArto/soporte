@@ -73,7 +73,7 @@ $this->load->view("barra");
 
 <section>
 
-
+                             <form action="<?php echo site_url("tickets/Agregar") ?>" method="post">
   <div class="row">
                          <div class="col-md-1"></div>
                        <div class="col-md-4">
@@ -189,7 +189,7 @@ $this->load->view("barra");
                         	<button id="btnGenerar" name="generar" class="btn btn-primary btn-lg">GENERAR</button>
                             </div>
                          </div>        
-                        
+                        </form>
 </section>
 
 

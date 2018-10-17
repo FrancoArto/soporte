@@ -47,7 +47,7 @@ class Tickets extends CI_Controller {
 		redirect('tickets');	
 	}
 	
-	public function Modificar(){
+	public function Modificar($ticket_id = ""){
 		$this->load->library("form_validation");
 		
 		$this->form_validation->set_rules('txtQuienSolicita', 'txtQuienSolicita', 'required|trim');
@@ -57,10 +57,9 @@ class Tickets extends CI_Controller {
 		$this->form_validation->set_rules('txtPrioridad', 'txtPrioridad', 'required|trim');
 		$this->form_validation->set_rules('fecha_limite', 'txtParaCuando', 'required|trim');
 		
-		$this->form_validation->run();
+		if($this->form_validation->run()){
 		
 		$datos = array();
-		
 		$datos["quien"] =set_value("txtQuienSolicita");
 		$datos["titulo"] =set_value("txtTitulo");
 		$datos["descripcion"] =set_value("txtDescripcion");
@@ -69,9 +68,12 @@ class Tickets extends CI_Controller {
 		$datos["fecha_limite"] =set_value("fecha_limite");
 		$datos["creador"] =$this->session->userdata("usuario_id");
 			
-		$this->ticket_model->modificacion($datos);
+		$this->ticket_model->modificacion($ticket_id,$datos);
 		
-		redirect('tickets');	
+			redirect('tickets');
+		}else{
+			redirect('tickets/ERROR');	
+		}	
 	}
 	
 	public function listar(){
@@ -102,5 +104,21 @@ class Tickets extends CI_Controller {
 		}
 		
 		redirect("tickets/listar");
+	}
+	
+	public function TraerTicket($ticket_id = "")
+	{
+		$rol = $this->session->userdata("rol");
+		
+		if($rol == 'A')
+		{
+			$this->datos["ticket"] = $this->ticket_model->obtener_por_id($ticket_id);
+		
+			$this->load->view('modificarTicket', $this->datos);
+		}
+		else
+		{
+			Redirect('usuarios/index/PROHIBIDO');
+		}
 	}
 }
