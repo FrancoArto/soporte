@@ -44,6 +44,31 @@ class Tickets extends CI_Controller {
 			
 		$this->ticket_model->alta($datos);
 		
+		//cargamos la libreria email de ci
+		$this->load->library("email");
+
+		//configuracion para gmail
+		$configGmail = array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.gmail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'soportamehilet@gmail.com',
+			'smtp_pass' => 'SopHilet123',
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'newline' => "\r\n"
+		);    
+
+		//cargamos la configuración para enviar con gmail
+		$this->email->initialize($configGmail);
+
+		$this->email->from('TecnoHilet');
+		$this->email->reply_to("soportamehilet@gmail.com");
+		$this->email->to("open24ml@gmail.com");
+		$this->email->subject('Prueba');
+		$this->email->message('Funciono?');
+		$this->email->send();
+		
 		redirect('tickets');	
 	}
 	
