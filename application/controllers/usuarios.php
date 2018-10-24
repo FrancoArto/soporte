@@ -95,17 +95,17 @@ class Usuarios extends CI_Controller {
 					}
 					else
 					{
-						redirect('usuarios/index/INACTIVO');
+						redirect('welcome/index/INACTIVO');
 					}
 				}
 				else
 				{
-					redirect('usuarios/index/ERRORCRED');
+					redirect('welcome/index/ERRORCRED');
 				}
 			}
 			else
 			{
-				redirect('usuarios/index/ERRORCRED');
+				redirect('welcome/index/ERRORCRED');
 			}
 	}
 	

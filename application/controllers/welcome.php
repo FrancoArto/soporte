@@ -17,10 +17,13 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+
+	protected $datos = array();
+	public function index($op = "")
 	{
 		$this->session->sess_destroy();
-		$this->load->view('principal');
+		$this->datos["op"] = $op;
+		$this->load->view('principal', $this->datos);
 	}
 }
 
