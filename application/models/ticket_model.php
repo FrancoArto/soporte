@@ -8,8 +8,9 @@ class Ticket_model extends CI_Model {
 		$this->db->set("descripcion",$datos["descripcion"]);
 		$this->db->set("sector",$datos["sector"]);
 		$this->db->set("prioridad",$datos["prioridad"]);
-		//$this->db->set("fecha_limite",$datos["fecha_limite"]);
+		$this->db->set("fecha_limite",$datos["fecha_limite"]);
 		$this->db->set("creador",$datos["creador"]);
+		$this->db->set("codigo",$datos["codigo"]);
 		
 		$this->db->insert("tickets", $datos);
 	}
