@@ -193,28 +193,27 @@ border-color:#151525;
                         <button id="btnIngresar" name="btningresar" class="btn alert-info btn-lg">INGRESAR</button>
                       </form>
 
-                    </div>
-                    
-                    <div class="form-group"  style="text-align:center">
-                      <?php if(isset($op)) {
-                        switch($op) {
-                       case "ERRORCRED": ?> <span class="alert alert-danger">Credenciales invalidas</span>
-                       <?php break;
-
-                       case "INACTIVO": ?> <span class="alert alert-danger">Usuario inactivo</span>
-                       <?php break;
-
-                       case "CAMPOSINCOMPLETOS": ?> <span class="alert alert-danger">Complete todos los campos</span>
-                        <?php break;
-                        
-                       default:
-                       break;  
-                        }
-                     } ?>
+                    </div>              
+                   
                    </div>
+                    <div class="row">
+                    <div class="form-group"  style="text-align:center">
+                        <?php if(isset($op)) {
+                            switch($op) {
+                        case "ERRORCRED": ?> <span class="alert alert-danger">Credenciales invalidas</span>
+                        <?php break;
 
-                   
-                   
+                        case "INACTIVO": ?> <span class="alert alert-danger">Usuario inactivo</span>
+                        <?php break;
+
+                        case "CAMPOSINCOMPLETOS": ?> <span class="alert alert-danger">Complete todos los campos</span>
+                            <?php break;
+                            
+                        default:
+                        break;  
+                            }
+                        } ?>
+                    </div>
                    </div>
                   </div>
                    
