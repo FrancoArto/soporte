@@ -204,6 +204,9 @@ border-color:#151525;
                        case "INACTIVO": ?> <span class="alert alert-danger">Usuario inactivo</span>
                        <?php break;
 
+                       case "CAMPOSINCOMPLETOS": ?> <span class="alert alert-danger">Complete todos los campos</span>
+                        <?php break;
+                        
                        default:
                        break;  
                         }

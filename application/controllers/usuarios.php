@@ -69,7 +69,7 @@ class Usuarios extends CI_Controller {
 		
 		if(!$this->form_validation->run())
 		{
-			redirect('');
+			redirect('welcome/index/CAMPOSINCOMPLETOS');
 		}
 		
 		$login = array();

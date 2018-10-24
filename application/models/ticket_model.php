@@ -18,7 +18,7 @@ class Ticket_model extends CI_Model {
 	{
 		$this->db->where("ticket_id", $ticket_id);
 		$this->db->limit(1);
-		$this->db->delete("Tickets");
+		$this->db->delete("tickets");
 		
 		if($this->db->affected_rows())
 		{
@@ -53,12 +53,12 @@ class Ticket_model extends CI_Model {
 		if ($usuario_id == ""){
 			$this->db->order_by($orden,$sentido);
 			
-			$datos = $this->db->get("Tickets");
+			$datos = $this->db->get("tickets");
 		}else{
 			$this->db->where("creador", $usuario_id);
 			$this->db->order_by($orden,$sentido);
 		
-			$datos = $this->db->get("Tickets");
+			$datos = $this->db->get("tickets");
 		}
 		//forma de obtener de los datos 
 		if($datos->num_rows())
@@ -75,7 +75,7 @@ class Ticket_model extends CI_Model {
 		
 		$this->db->limit(1);
 		
-		$datos = $this->db->get("Tickets");
+		$datos = $this->db->get("tickets");
 		
 		//forma de obtener el dato 
 		if($datos->num_rows())
