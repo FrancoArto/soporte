@@ -8,7 +8,7 @@ class Ticket_model extends CI_Model {
 		$this->db->set("descripcion",$datos["descripcion"]);
 		$this->db->set("sector",$datos["sector"]);
 		$this->db->set("prioridad",$datos["prioridad"]);
-		$this->db->set("fecha_limite",$datos["fecha_limite"]);
+		//$this->db->set("fecha_limite",$datos["fecha_limite"]);
 		$this->db->set("creador",$datos["creador"]);
 		$this->db->set("codigo",$datos["codigo"]);
 		
@@ -52,10 +52,18 @@ class Ticket_model extends CI_Model {
 	function listado($orden = "estado", $sentido = "ASC", $usuario_id = "")
 	{
 		if ($usuario_id == ""){
+			$this->db->select("tickets.*, usuarios.usuario, estados.nombre as estado_nombre");
+			$this->db->join('usuarios', 'tickets.creador = usuarios.usuario_id', "inner");
+			$this->db->join('estados', 'tickets.estado = estados.estado_id', "inner");
 			$this->db->order_by($orden,$sentido);
 			
 			$datos = $this->db->get("tickets");
 		}else{
+
+			$this->db->select("tickets.*, usuarios.usuario, estados.nombre as estado_nombre");
+			$this->db->join('usuarios', 'tickets.creador = usuarios.usuario_id', "inner");
+			$this->db->join('estados', 'tickets.estado = estados.estado_id', "inner");
+			
 			$this->db->where("creador", $usuario_id);
 			$this->db->order_by($orden,$sentido);
 		
