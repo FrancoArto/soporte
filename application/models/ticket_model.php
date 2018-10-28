@@ -94,5 +94,21 @@ class Ticket_model extends CI_Model {
 			return false;
 		}
 	}
+	function obtener_por_codigo($codigo = "")
+	{
+		$this->db->where("codigo", $codigo);
+		
+		$this->db->limit(1);
+		
+		$datos = $this->db->get("tickets");
+		
+		//forma de obtener el dato 
+		if($datos->num_rows())
+		{
+			return $datos->row_array();	
+		}else{
+			return false;
+		}
+	}
 }
 ?>

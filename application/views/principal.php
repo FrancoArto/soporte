@@ -224,7 +224,7 @@ border-color:#151525;
                     <div class="row" style="height:50%">
                   			<br>
                             <legend>SEGUIMIENTO DE TICKET</legend>
-                            
+                            <form action="<?php echo site_url("tickets/TraerTicketPorCodigo/".$codigo); ?>" method="post" autocomplete="on">
                             <div class="form-group">
                                             <br><br>
                                          <div class="row">
@@ -250,6 +250,7 @@ border-color:#151525;
                                    </div>
                                    
                                    </div>
+                                   </form>
                                   </div>
                                 
                         <br>

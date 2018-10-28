@@ -165,4 +165,12 @@ class Tickets extends CI_Controller {
 			Redirect('usuarios/index/PROHIBIDO');
 		}
 	}
+	public function TraerTicketPorCodigo($codigo="")
+	{
+		$ticket=array();
+		$ticket=$this->ticket_model->obtener_por_codigo($codigo);
+
+		$this->load->view('buscarTicket',$this->ticket);
+
+	}
 }
