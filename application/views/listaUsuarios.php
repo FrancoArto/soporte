@@ -94,7 +94,7 @@ letter-spacing:15px;
         <div class="row">
         	<div class="col-md-2"></div>
         	<div class="col-md-2">
-            	<a class="btn btn bg-primary" href="<?php echo site_url('usuarios/agregar'); ?>">Nuevo Usuario</a>
+            	<a class="btn btn bg-primary" href="<?php echo site_url('usuarios/registro'); ?>">Nuevo Usuario</a>
             </div>
             <div class="col-md-8"></div>
         </div>

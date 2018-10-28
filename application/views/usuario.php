@@ -168,7 +168,7 @@ $this->load->view("barra");
                        <div class="col-md-4">
                     
                         <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="text" placeholder="Para cuando?" class="form-control input-md txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="date" placeholder="Para cuando?" class="form-control input-md txt" aria-describedby="sizing-addon2">
                         </div>
                         </div>
                         
@@ -186,12 +186,46 @@ $this->load->view("barra");
                         <br>
                         	<div class="col-md-3"></div>
                             <div class="col-md-4">
-                        	<button id="btnGenerar" name="generar" class="btn btn-primary btn-lg">GENERAR</button>
+                            <button id="btnGenerar" name="generar" class="btn btn-primary btn-lg">GENERAR</button>
+                            
+                            <div class="form-group"> <br>
+                    <?php if (isset($op)) {
+                        if ($op == "CAMPOSTICKET") {
+                            ?> <span class="alert alert-danger">Complete todos los campos</span>
+                            <?php
+                        }
+                        else
+                        {
+                            if ($op == "OK") {
+                                ?> <span class="alert alert-success">Ticket generado con exito</span>
+                                <?php
+                            }
+                        }
+                    }
+                    ?>
+                </div>
                             </div>
                          </div>        
                         </form>
+
+                        
 </section>
 
+<script type="text/javascript">
+ var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
 
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("txtParaCuando").setAttribute("min", today);
+document.getElementById("txtParaCuando").setAttribute("value", today);
+</script>
 </body>
 </html>

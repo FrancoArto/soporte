@@ -101,6 +101,25 @@ border-color:#151525;
               <button type="submit" class="btn alert-info btn-lg">CREAR USUARIO</button>
               
             </form>
+
+            <div class="row">
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+              <br>
+              <?php if(isset($op)) {
+                      switch($op) {
+                        case "ERRORCAMPOS": ?> <span class="alert alert-danger">Campos incompletos</span>
+                        <?php break;
+
+                        case "OK": ?> <span class="alert alert-success">Usuario registrado</span>
+                        <?php break;
+                            
+                        default:
+                        break;  
+                      }
+                    } ?>
+              </div>
+            </div>
             
             
             <br><br><br><br>

@@ -8,26 +8,31 @@ class Usuarios extends CI_Controller {
 		$this->load->model('usuarios_model');
 	}
 	
-	public function index()
+	public function index($op = "")
 	{
 		if($sesion = $this->session->userdata("usuario_id"))
 		{
-			$this->load->view('usuario');
+			$this->datos["op"] = $op;
+			$this->load->view('usuario', $this->datos);
 		}
 	}
-	
-	public function Agregar(){
-		
+
+	public function Registro($op = ""){
 		$rol = $this->session->userdata("rol");
 		
 		if($rol == 'A')
 		{
-			$this->load->view('registro');
+			$this->datos["op"] = $op;
+			$this->load->view('registro', $this->datos);
 		}
 		else
 		{
 			redirect('#');	
 		}
+	}
+	
+	public function Agregar(){	
+		
 		
 		
 		$this->load->library("form_validation");
@@ -51,11 +56,11 @@ class Usuarios extends CI_Controller {
 			$datos["rol"] = set_value("rol");
 				
 			$this->usuarios_model->alta($datos);
-			redirect('usuarios/agregar/OK');
+			redirect('usuarios/registro/OK');
 		}
 		else
 		{
-			redirect('usuarios/agregar/ERRORCAMPOS');
+			redirect('usuarios/registro/ERRORCAMPOS');
 		}
 				
 	}
@@ -127,7 +132,7 @@ class Usuarios extends CI_Controller {
 		}
 		else
 		{
-			redirect('usuarios/index/PROHIBIDO');	
+			redirect('welcome/index/PROHIBIDO');	
 		}
 		
 		
@@ -162,7 +167,7 @@ class Usuarios extends CI_Controller {
 		}
 		else
 		{
-			Redirect('usuarios/index/PROHIBIDO');
+			Redirect('welcome/index/PROHIBIDO');
 		}
 		
 		

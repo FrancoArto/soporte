@@ -124,7 +124,7 @@ border-color:#151525;
                         <div class="col-md-8">
                     
                         <div class="input-group">
-                            <span class="input-group-addon" id="sCuando"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="text" placeholder="Para cuando se solicita?" onfocus="focoInput('sCuando');" onBlur="blurInput('sCuando')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
+                            <span class="input-group-addon" id="sCuando"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="date" placeholder="Para cuando se solicita?" onfocus="focoInput('sCuando');" onBlur="blurInput('sCuando')" class="form-control input-lg txt" aria-describedby="sizing-addon2">
                         </div></div></div></div>
                         
                         
@@ -134,11 +134,32 @@ border-color:#151525;
                         <br>
                         
                           
-                        	<button id="btnGenerar" name="generar" class="btn alert-info btn-lg">GENERAR</button>
+                            <button id="btnGenerar" name="generar" class="btn alert-info btn-lg">GENERAR</button>
+                            
                            
                          </div>        
                          </div>   
                 </form>
+                <div style="text-align:center" class="form-group">
+                <br>
+                            <?php if (isset($op)) {
+                                if ($op == "CAMPOSTICKET") {
+                                    ?> <span class="alert alert-danger">Complete todos los campos</span>
+                                    <?php
+                                }
+                                else
+                                {
+                                    if ($op == "OK") {
+                                        ?> <span class="alert alert-success">Ticket generado con exito</span>
+                                        <?php
+                                    }
+                                }
+                            }
+                            ?>
+                
+                </div>
+                 
+                
                 </div>
                
                <div class="col-md-1"></div>
@@ -198,12 +219,16 @@ border-color:#151525;
                    </div>
                     <div class="row">
                     <div class="form-group"  style="text-align:center">
+                        <br>
                         <?php if(isset($op)) {
                             switch($op) {
                         case "ERRORCRED": ?> <span class="alert alert-danger">Credenciales invalidas</span>
                         <?php break;
 
                         case "INACTIVO": ?> <span class="alert alert-danger">Usuario inactivo</span>
+                        <?php break;
+
+                        case "PROHIBIDO": ?> <span class="alert alert-danger">Debe ingresar con un usuario administrador para acceder a ese sitio</span>
                         <?php break;
 
                         case "CAMPOSINCOMPLETOS": ?> <span class="alert alert-danger">Complete todos los campos</span>
@@ -259,7 +284,22 @@ border-color:#151525;
               
        
        
- 
+ <script type="text/javascript">
+ var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("txtParaCuando").setAttribute("min", today);
+document.getElementById("txtParaCuando").setAttribute("value", today);
+</script>
 </body>
 
 
