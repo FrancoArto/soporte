@@ -82,10 +82,10 @@ letter-spacing:15px;
                     <td><?php echo $ticket["solucion"]; ?></td>
                     <td><?php echo $ticket["sector"]; ?></td>
                     <td><?php echo $ticket["prioridad"]; ?></td>
-                    <td><?php echo $ticket["estado"]; ?></td>
+                    <td><?php echo $ticket["estado_nombre"]; ?></td>
                     <td><?php echo $ticket["asignado"]; ?></td>
                     <td><?php echo $ticket["fecha_limite"]; ?></td>
-                    <td><?php echo $ticket["creador"]; ?></td>
+                    <td><?php echo $ticket["usuario"]; ?></td>
                     <td><a class="btn btn-primary btn-xs" href="<?php echo site_url('tickets/traerticket/'.$ticket["ticket_id"]); ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></td>
                     <td><a class="btn btn-danger btn-xs" href="<?php echo site_url('tickets/baja/'.$ticket["ticket_id"]); ?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
                 </tr>
