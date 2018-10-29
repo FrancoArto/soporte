@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2018 a las 05:26:59
+-- Tiempo de generación: 29-10-2018 a las 20:51:08
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -101,8 +101,9 @@ INSERT INTO `tickets` (`ticket_id`, `fecha_inicio`, `fecha_fin`, `quien`, `titul
 (18, '2018-10-24 13:57:02', '0000-00-00 00:00:00', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', 2, ''),
 (19, '2018-10-24 13:57:31', '0000-00-00 00:00:00', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', 2, ''),
 (21, '2018-10-24 13:59:33', '0000-00-00 00:00:00', '                                     ', 'gdhgfhgfhh', 'ghgf', '', '                  ', 0, 0, 0, '0000-00-00 00:00:00', 3, ''),
-(22, '2018-10-28 22:48:48', NULL, 'Franco', 'PC', 'No anda', '', 'Ventas', 2, 1, 0, '2018-10-30 00:00:00', 1, 'Vea102818'),
-(23, '2018-10-29 01:35:45', NULL, 'User', 'PC', 'Fuego', '', 'Ventas', 1, 1, 1, '0000-00-00 00:00:00', 1, 'Veh102918');
+(22, '2018-10-28 22:48:48', '2018-10-29 20:41:05', 'Franco', 'PC', 'No anda', 'Tirarla a la basura', 'Ventas', 2, 5, 1, '2018-10-30 00:00:00', 1, 'Vea102818'),
+(23, '2018-10-29 01:35:45', '2018-10-29 20:03:07', 'User', 'PC', 'Fuego', '', 'Ventas', 0, 5, 1, '0000-00-00 00:00:00', 1, 'Veh102918'),
+(24, '2018-10-29 17:47:24', '2018-10-29 20:02:02', 'Franco', 'Pc', 'No anda', '', 'Ventas', 0, 5, 1, '2018-10-30 00:00:00', 4, 'Vej102918');
 
 -- --------------------------------------------------------
 
@@ -127,10 +128,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usuario_id`, `usuario`, `password`, `ult_login`, `rol`, `estado`, `nombre`, `sector`, `email`) VALUES
-(1, 'admin', '12345', '2018-10-29 01:23:39', 'A', 1, 'admin', 'sistemas', 'admin@gmail.com'),
+(1, 'admin', '12345', '2018-10-29 16:38:54', 'A', 1, 'admin', 'sistemas', 'admin@gmail.com'),
 (2, 'invitado', '1234', '2018-09-26 10:59:01', 'U', 1, 'anonimo', 'invitado', ''),
-(3, 'Matias', '123456', '2018-10-24 10:58:14', 'A', 1, 'Matias', 'oficina', 'mati@gmail.com'),
-(4, 'User', '1234', '2018-10-29 00:05:13', 'U', 1, 'Franco', 'Ventas', 'user@app.com');
+(3, 'Matias', '123456', '2018-10-24 10:58:14', 'U', 1, 'Matias', 'oficina', 'mati@gmail.com'),
+(4, 'User', '1234', '2018-10-29 14:44:08', 'U', 1, 'Franco', 'Ventas', 'user@app.com');
 
 --
 -- Índices para tablas volcadas
@@ -180,7 +181,7 @@ ALTER TABLE `prioridades`
 -- AUTO_INCREMENT de la tabla `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
