@@ -177,12 +177,13 @@ class Usuarios extends CI_Controller {
 		
 		$this->load->library("form_validation");
 		
-		$this->form_validation->set_rules('usuario', 'Usuario', 'trim');
-		$this->form_validation->set_rules('pass', 'Pass', 'trim');
-		$this->form_validation->set_rules('nombre', 'Nombre', 'trim');
-		$this->form_validation->set_rules('sector', 'Sector', 'trim');
-		$this->form_validation->set_rules('email', 'Email', 'trim');
-		
+		$this->form_validation->set_rules('usuario', 'Usuario', 'required|trim');
+		$this->form_validation->set_rules('pass', 'Pass', 'required|trim');
+		$this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
+		$this->form_validation->set_rules('sector', 'Sector', 'required|trim');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('rol', 'Rol', 'required|trim');
+
 		if($this->form_validation->run()){
 			$datos = array();
 			$datos["usuario"] = set_value("usuario");
@@ -190,6 +191,7 @@ class Usuarios extends CI_Controller {
 			$datos["nombre"] =set_value("nombre");
 			$datos["sector"] =set_value("sector");
 			$datos["email"] =set_value("email");
+			$datos["rol"] = set_value("rol");
 			
 			$this->usuarios_model->modificacion($usuario_id, $datos);
 			

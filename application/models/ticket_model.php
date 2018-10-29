@@ -51,24 +51,17 @@ class Ticket_model extends CI_Model {
 	
 	function listado($orden = "estado", $sentido = "ASC", $usuario_id = "")
 	{
-		if ($usuario_id == ""){
-			$this->db->select("tickets.*, usuarios.usuario, estados.nombre as estado_nombre");
-			$this->db->join('usuarios', 'tickets.creador = usuarios.usuario_id', "inner");
-			$this->db->join('estados', 'tickets.estado = estados.estado_id', "inner");
-			$this->db->order_by($orden,$sentido);
-			
-			$datos = $this->db->get("tickets");
-		}else{
-
-			$this->db->select("tickets.*, usuarios.usuario, estados.nombre as estado_nombre");
-			$this->db->join('usuarios', 'tickets.creador = usuarios.usuario_id', "inner");
-			$this->db->join('estados', 'tickets.estado = estados.estado_id', "inner");
-			
-			$this->db->where("creador", $usuario_id);
-			$this->db->order_by($orden,$sentido);
+		$this->db->select("tickets.*, usuarios.usuario, estados.nombre as estado_nombre, prioridades.nombre as prioridad_nombre");
+		$this->db->join('usuarios', 'tickets.creador = usuarios.usuario_id', "inner");
+		$this->db->join('estados', 'tickets.estado = estados.estado_id', "inner");
+		$this->db->join('prioridades', 'tickets.prioridad = prioridades.prioridad_id', "inner");		
 		
-			$datos = $this->db->get("tickets");
+		if ($usuario_id != ""){
+			$this->db->where("creador", $usuario_id);
 		}
+		$this->db->order_by($orden,$sentido);
+		$datos = $this->db->get("tickets");
+
 		//forma de obtener de los datos 
 		if($datos->num_rows())
 		{
@@ -96,6 +89,9 @@ class Ticket_model extends CI_Model {
 	}
 	function obtener_por_codigo($codigo = "")
 	{
+		$this->db->select("tickets.*, estados.nombre as estado_nombre, prioridades.nombre as prioridad_nombre");
+		$this->db->join('estados', 'tickets.estado = estados.estado_id', "inner");
+		$this->db->join('prioridades', 'tickets.prioridad = prioridades.prioridad_id', "inner");
 		$this->db->where("codigo", $codigo);
 		
 		$this->db->limit(1);

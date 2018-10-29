@@ -81,7 +81,6 @@ letter-spacing:15px;
                     <td><?php echo $usuario["nombre"]; ?></td>
                     <td><?php echo $usuario["sector"]; ?></td>
                     <td><?php echo $usuario["email"]; ?></td>
-                    <td><a class="btn btn-primary btn-xs" href="<?php echo site_url('usuarios/modificar'); ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></td>
                     <td><a class="btn btn-primary btn-xs" href="<?php echo site_url('usuarios/traerusuario/'.$usuario["usuario_id"]); ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></td>
                     <td><a class="btn btn-danger btn-xs" href="<?php echo site_url('usuarios/baja/'.$usuario["usuario_id"]); ?>"><span class="glyphicon glyphicon-download" aria-hidden="true"></span></td>
                 </tr>
@@ -128,7 +127,6 @@ letter-spacing:15px;
                     <td><?php echo $usuario["nombre"]; ?></td>
                     <td><?php echo $usuario["sector"]; ?></td>
                     <td><?php echo $usuario["email"]; ?></td>
-                    <td><a class="btn btn-primary btn-xs" href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></td>
                     <td><a class="btn btn-primary btn-xs" href="<?php echo site_url('usuarios/traerusuario/'.$usuario["usuario_id"]); ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></td>
                     <td><a class="btn btn-danger btn-xs" href="<?php echo site_url('usuarios/activar/'.$usuario["usuario_id"]); ?>"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></td>
                 </tr>

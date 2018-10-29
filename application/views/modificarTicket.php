@@ -91,10 +91,20 @@ border-color:#151525;
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="fecha_limite"><i class="glyphicon glyphicon-chevron-right" ></i></span>
-                <input type="text" class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="fecha_limite" name="fecha_limite" placeholder="Para cuando..." value="<?php echo $ticket["fecha_limite"]; ?>">
+                <input type="date" class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="fecha_limite" name="fecha_limite" placeholder="Para cuando..." value="<?php $ticket["fecha_limite"]; ?>">
               </div></div><br>
-              
-              
+
+              <div class="form-group">
+                <div class="input-group">
+                <span class="input-group-addon" id="fecha_limite"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <select class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="asignado" name="asignado">
+                  <?php foreach ($usuarios as $user) {
+                    if ($user["rol"] == 'A') { ?>
+                     <option value="<?php echo $user["usuario_id"]; ?>"><?php echo $user["nombre"]; ?></option>
+                    <?php }
+                  } ?>
+                </select>
+              </div></div><br>
               <button type="submit" class="btn alert-info btn-lg">MODIFICAR TICKET</button>
               
             </form>

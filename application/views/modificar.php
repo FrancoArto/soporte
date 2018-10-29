@@ -88,6 +88,20 @@ border-color:#151525;
                 <span class="input-group-addon" id="sEmail"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sEmail');" onBlur="blurInput('sEmail')" id="email" name="email" placeholder="Email..." value="<?php echo $usuario["email"]; ?>">
               </div></div><br>
+              <div class="form-group">
+                <div class="input-group">
+                <span class="input-group-addon" id="sRol"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                <select class="form-control" onfocus="focoInput('sRol');" onBlur="blurInput('sRol')" id="rol" name="rol">
+                  <?php if ($usuario["rol"] == 'A') { ?>
+                	<option selected="selected" value="A">Administrador</option>
+                  <option value="U">Usuario</option>
+                  <?php }
+                  else { ?>
+                    <option value="A">Administrador</option>
+                    <option selected="selected" value="U">Usuario</option>
+                  <?php } ?>                    
+                </select>
+              </div></div><br>
               
               
               <button type="submit" class="btn alert-info btn-lg">MODIFICAR USUARIO</button>

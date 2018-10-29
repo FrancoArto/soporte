@@ -149,8 +149,13 @@ $this->load->view("barra");
                          <div class="col-md-1"></div>
                        <div class="col-md-4">
                     
-                        <div class="input-group">
-                            <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtPrioridad" name="txtPrioridad" type="text" placeholder="Ingrese prioridad..." class="form-control input-md txt" aria-describedby="sizing-addon2">
+                       <div class="input-group">
+                        <span class="input-group-addon" id="sPrioridad"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                        <select class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="txtPrioridad" name="txtPrioridad">
+                	        <option value="1">Prioridad Alta</option>
+                            <option value="2">Prioridad Media</option>                    
+                            <option value="3">Prioridad Baja</option>
+                        </select>
                         </div>
                         </div>
                         

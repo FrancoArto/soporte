@@ -12,13 +12,13 @@ class Usuarios_model extends CI_Model {
 		
 		$this->db->insert("usuarios", $datos);
 		
-		//forma de confirmar que el insert se realizo
-		/*if($cod = $this->db->insert_id)
+		
+		if($cod = $this->db->insert_id)
 		{
 			return $cod;
 		}else{
 			return false;
-		}	*/
+		}	
 	}
 	
 	function baja($usuario_id = "", $estado = 0)
