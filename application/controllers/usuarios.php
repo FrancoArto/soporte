@@ -122,9 +122,9 @@ class Usuarios extends CI_Controller {
 		redirect('');
 	}
 	
-	public function listar(){
+	public function listar($op = ""){
 		$rol = $this->session->userdata("rol");
-		
+		$this->datos["op"] = $op;
 		if($rol == 'A')
 		{
 			$this->datos["lista"] = $this->usuarios_model->listado();
@@ -195,9 +195,9 @@ class Usuarios extends CI_Controller {
 			
 			$this->usuarios_model->modificacion($usuario_id, $datos);
 			
-			redirect('usuarios/listar');
+			redirect('usuarios/listar/OK');
 		}else{
-			redirect('usuarios/traerusuario/ERROR');	
+			redirect('usuarios/listar/ERROR');	
 		}
 	}
 }

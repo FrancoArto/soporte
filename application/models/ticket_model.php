@@ -73,6 +73,8 @@ class Ticket_model extends CI_Model {
 	
 	function obtener_por_id($ticket_id = "")
 	{
+		$this->db->select("tickets.*, prioridades.nombre as prioridad_nombre");
+		$this->db->join('prioridades', 'tickets.prioridad = prioridades.prioridad_id', "inner");
 		$this->db->where("ticket_id", $ticket_id);
 		
 		$this->db->limit(1);

@@ -8,6 +8,7 @@ class Tickets extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ticket_model');
 		$this->load->model('usuarios_model');
+		$this->load->model('estados_model');
 	}
 	
 	public function index()
@@ -22,10 +23,13 @@ class Tickets extends CI_Controller {
 	public function Agregar(){
 		$this->load->library("form_validation");
 		
-		$this->form_validation->set_rules('txtQuienSolicita', 'txtQuienSolicita', 'required|trim');
+		if ($this->session->userdata("rol") == 'A') { 
+			$this->form_validation->set_rules('txtQuienSolicita', 'txtQuienSolicita', 'required|trim');
+			$this->form_validation->set_rules('txtSector', 'txtSector', 'required|trim');
+		}
+		
 		$this->form_validation->set_rules('txtTitulo', 'txtTitulo', 'required|trim');
-		$this->form_validation->set_rules('txtDescripcion', 'txtDescripcion', 'required|trim');
-		$this->form_validation->set_rules('txtSector', 'txtSector', 'required|trim');
+		$this->form_validation->set_rules('txtDescripcion', 'txtDescripcion', 'required|trim');		
 		$this->form_validation->set_rules('txtPrioridad', 'txtPrioridad', 'required|trim');
 		$this->form_validation->set_rules('txtParaCuando', 'txtParaCuando', 'required|trim');
 		
@@ -33,10 +37,19 @@ class Tickets extends CI_Controller {
 			
 			$datos = array();
 			
-			$datos["quien"] =set_value("txtQuienSolicita");
+			if ($this->session->userdata("rol") == 'A') {
+				$datos["quien"] = set_value("txtQuienSolicita");
+				$datos["sector"] = set_value("txtSector");
+			}
+			else {
+				$datos["quien"] = $this->session->userdata("nombre");
+				$datos["sector"] = $this->session->userdata("sector");
+			}
+
+			
 			$datos["titulo"] =set_value("txtTitulo");
 			$datos["descripcion"] =set_value("txtDescripcion");
-			$datos["sector"] =set_value("txtSector");
+			
 			$datos["prioridad"] =set_value("txtPrioridad");
 			$datos["fecha_limite"] =set_value("txtParaCuando");
 			if ($this->session->userdata("email"))
@@ -106,37 +119,32 @@ class Tickets extends CI_Controller {
 	public function Modificar($ticket_id = ""){
 		$this->load->library("form_validation");
 		
-		$this->form_validation->set_rules('txtQuienSolicita', 'txtQuienSolicita', 'required|trim');
-		$this->form_validation->set_rules('txtTitulo', 'txtTitulo', 'required|trim');
-		$this->form_validation->set_rules('txtDescripcion', 'txtDescripcion', 'required|trim');
-		$this->form_validation->set_rules('txtSector', 'txtSector', 'required|trim');
-		$this->form_validation->set_rules('txtPrioridad', 'txtPrioridad', 'required|trim');
-		$this->form_validation->set_rules('fecha_limite', 'fecha_limite', 'required|trim');
 		$this->form_validation->set_rules('asignado', 'Asignado', 'required|trim');
+		$this->form_validation->set_rules('estado', 'Estado', 'required|trim');
+		$this->form_validation->set_rules('txtSolucion', 'txtSolucion', 'required|trim');
 
 		if($this->form_validation->run()){
 		
 		$datos = array();
-		$datos["quien"] =set_value("txtQuienSolicita");
-		$datos["titulo"] =set_value("txtTitulo");
-		$datos["descripcion"] =set_value("txtDescripcion");
-		$datos["sector"] =set_value("txtSector");
-		$datos["prioridad"] =set_value("txtPrioridad");
-		$datos["fecha_limite"] =set_value("fecha_limite");
 		$datos["asignado"] = set_value("asignado");
-		$datos["creador"] =$this->session->userdata("usuario_id");
+		$datos["estado"] = set_value("estado");
+		$datos["solucion"] = set_value("txtSolucion");
+		if ($datos["estado"] == 5) {
+			$datos["fecha_fin"] = date('Y-m-d H:i:s');
+		}
 			
 		$this->ticket_model->modificacion($ticket_id,$datos);
 		
-			redirect('tickets');
+			redirect('tickets/listar/OKMODIFICADO');
 		}else{
-			redirect('tickets/ERROR');	
+			redirect('tickets/listar/ERRORMODIFICADO');	
 		}	
 	}
 	
-	public function listar(){
+	public function listar($op = ""){
 		$rol = $this->session->userdata("rol");
 		$usuario_id = $this->session->userdata("usuario_id");
+		$this->datos["op"] = $op;
 		if($rol == 'A')
 		{
 			$this->datos["lista"] = $this->ticket_model->listado();
@@ -150,7 +158,7 @@ class Tickets extends CI_Controller {
 				
 				$this->load->view('listaTickets', $this->datos);
 			}else{
-				redirect('#');
+				redirect('welcome/index/PROHIBIDO');
 			}	
 		}	
 	}
@@ -159,9 +167,13 @@ class Tickets extends CI_Controller {
 		
 		if($usuario_id!=""){
 			$this->ticket_model->baja($usuario_id);
+			redirect("tickets/listar/OKBORRADO");
+		}
+		else {
+			redirect("tickets/listar/ERRORBORRADO");
 		}
 		
-		redirect("tickets/listar");
+		
 	}
 	
 	public function TraerTicket($ticket_id = "")
@@ -172,6 +184,7 @@ class Tickets extends CI_Controller {
 		{
 			$this->datos["ticket"] = $this->ticket_model->obtener_por_id($ticket_id);
 			$this->datos["usuarios"] = $this->usuarios_model->listado();
+			$this->datos["estados"] = $this->estados_model->listar();
 			$this->load->view('modificarTicket', $this->datos);
 		}
 		else

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Lista Usuarios</title>
+<title>Lista Tickets</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,6 +95,29 @@ letter-spacing:15px;
                 </tr>
                 <?php } ?>
                 </table>
+                
+                <br>
+                <div class="row" style="text-align:center">
+                <?php if(isset($op)) {
+                        switch ($op) {
+                            case "ERRORBORRADO": ?> <span class="alert alert-danger">Error al borrar el ticket</span>
+                            <?php break;
+
+                            case "ERRORMODIFICADO": ?> <span class="alert alert-danger">Error al modificar el ticket</span>
+                            <?php break;
+
+                            case "OKBORRADO": ?> <span class="alert alert-success">Ticket eliminado con exito</span>
+                            <?php break;
+
+                            case "OKMODIFICADO": ?> <span class="alert alert-success">Ticket modificado con exito</span>
+                            <?php break;
+                    
+                            default:
+                        }
+                    }?>
+                </div>
+                <br>
+
  			</div>
             <div class="col-md-1"></div>
 		</div>

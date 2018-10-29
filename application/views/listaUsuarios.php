@@ -133,6 +133,22 @@ letter-spacing:15px;
                 <?php	} 
 					} ?>
                 </table>
+
+                <br>
+                <div class="row" style="text-align:center">
+                <?php if(isset($op)) {
+                        switch ($op) {
+                            case "ERROR": ?> <span class="alert alert-danger">Error al modificar usuario</span>
+                            <?php break;                            
+
+                            case "OK": ?> <span class="alert alert-success">Usuario modificado con exito</span>
+                            <?php break;                            
+                    
+                            default:
+                        }
+                    }?>
+                </div>
+                <br>
  			</div>
             <div class="col-md-2"></div>
 		</div>

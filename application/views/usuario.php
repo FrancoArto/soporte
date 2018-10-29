@@ -107,7 +107,7 @@ $this->load->view("barra");
  <br>
                     
                         
-                        
+   <?php if ($this->session->userdata("rol") == 'A') { ?>                     
   <div class="row">
                          <div class="col-md-1"></div>
                        <div class="col-md-4">
@@ -142,6 +142,8 @@ $this->load->view("barra");
  
  
  <br>
+
+   <?php } ?>
                     
                         
                         
