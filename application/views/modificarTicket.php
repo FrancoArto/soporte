@@ -38,6 +38,11 @@ color:#313131;
 border:inset;
 border-color:#151525;
 }
+.referencias{
+	color:#FFFFFF;
+	font-size:24px;
+	letter-spacing:3px;
+	}
 
 
 </style>
@@ -72,42 +77,64 @@ border-color:#151525;
 <br>
 <legend style="letter-spacing:15px; font-size:36px">MODIFICACION TICKET</legend>
 <div class="container">
-    <div class="row">
-		<div class="col-md-2"></div>
-        <div class="col-md-8" style="text-align:center">
+    
+		<div class="col-md-2" >
+        <div class="row form-group"><span class="referencias">&#8226;Titulo:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Descripcion:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Quien:</span> </div>
+           
+            <div class="row form-group"><span class="referencias">&#8226;Sector:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Prioridad:</span> </div>
+           
+            <div class="row form-group"><span class="referencias">&#8226;Fechalimite:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Rol:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Estado:</span> </div>
+            </div>
+        <div class="col-md-8">
             <form method="post" action="<?php echo site_url("tickets/Modificar/".$ticket["ticket_id"]);?>">
-            	<br>
+            	
+                <div class="row">
               <div class="form-group">
                <div class="input-group">
                 <span class="input-group-addon" id="txtTitulo"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" readonly class="form-control" onfocus="focoInput('sTitulo');" onBlur="blurInput('sTitulo')" id="txtTitulo" name="txtTitulo" placeholder="Titulo..." value="<?php echo $ticket["titulo"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="txtDescripcion"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" readonly class="form-control" onfocus="focoInput('txtDescripcion');" onBlur="blurInput('sDescripcion')" id="txtDescripcion" name="txtDescripcion" placeholder="Descripcion..." value="<?php echo $ticket["descripcion"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="txtQuienSolicita"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" readonly class="form-control" onfocus="focoInput('sQuien');" onBlur="blurInput('sQuien')" id="txtQuienSolicita" name="txtQuienSolicita" placeholder="Quien Solicita..." value="<?php echo $ticket["quien"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="txtSector"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" readonly class="form-control" onfocus="focoInput('sSector');" onBlur="blurInput('sSector')" id="txtSector" name="txtSector" placeholder="Sector..." value="<?php echo $ticket["sector"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="txtPrioridad"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" readonly class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="txtPrioridad" name="txtPrioridad" placeholder="Prioridad..." value="<?php echo $ticket["prioridad_nombre"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="fecha_limite"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" readonly class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="fecha_limite" name="fecha_limite" placeholder="Para cuando..." value="<?php echo $ticket["fecha_limite"]; ?>">
-              </div></div><br>
-
+              </div></div></div>
+				<div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="asign"><i class="glyphicon glyphicon-chevron-right" ></i></span>
@@ -118,8 +145,8 @@ border-color:#151525;
                     <?php }
                   } ?>
                 </select>
-              </div></div><br>
-
+              </div></div></div>
+				<div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="est"><i class="glyphicon glyphicon-chevron-right" ></i></span>
@@ -133,13 +160,14 @@ border-color:#151525;
                     <?php }
                   } ?>
                 </select>
-              </div></div><br>
-
+              </div></div></div>
+				<div class="row">
               <div class="form-group" id="divsolucion" hidden>
                 <div class="input-group">
                 <span class="input-group-addon" id="sol"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="txtSolucion" name="txtSolucion" placeholder="Solucion...">
-              </div></div><br>
+              </div></div></div>
+              <br><BR><BR>
               <button type="submit" class="btn alert-info btn-lg">MODIFICAR TICKET</button>
               
             </form>
@@ -151,7 +179,7 @@ border-color:#151525;
           
         </div>
         <div class="col-md-2"></div>    
-    </div>
+    
 
 
 </body>

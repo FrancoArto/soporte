@@ -38,6 +38,11 @@ color:#FFFFFF;
 border:inset;
 border-color:#151525;
 }
+.referencias{
+	color:#FFFFFF;
+	font-size:24px;
+	letter-spacing:3px;
+	}
 
 
 </style>
@@ -58,36 +63,55 @@ border-color:#151525;
 <br>
 <legend style="letter-spacing:15px; font-size:36px">MODIFICACION USUARIO</legend>
 <div class="container">
-    <div class="row">
-		<div class="col-md-2"></div>
+   
+		<div class="col-md-2"  style="text-align:right">
+        		<div class="row form-group"><span class="referencias">&#8226;Usuario:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Password:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Nombre:</span> </div>
+           
+            <div class="row form-group"><span class="referencias">&#8226;Sector:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Email:</span> </div>
+           
+            <div class="row form-group"><span class="referencias">&#8226;Rol:</span> </div>
+            
+        
+        </div>
         <div class="col-md-8" style="text-align:center">
             <form method="post" action="<?php echo site_url("usuarios/modificar/".$usuario["usuario_id"]);?>">
-            	<br>
+            	<div class="row">
               <div class="form-group">
                <div class="input-group">
                 <span class="input-group-addon" id="sUsuario"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sUsuario');" onBlur="blurInput('sUsuario')" id="usuario" name="usuario" placeholder="Usuario..." value="<?php echo $usuario["usuario"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="sPass"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="password" class="form-control" onfocus="focoInput('sPass');" onBlur="blurInput('sPass')" id="pass" name="pass" placeholder="Password..." value="<?php echo $usuario["password"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="sNombre"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sNombre');" onBlur="blurInput('sNombre')" id="nombre" name="nombre" placeholder="Nombre..." value="<?php echo $usuario["nombre"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="sSector"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sSector');" onBlur="blurInput('sSector')" id="sector" name="sector" placeholder="Sector..." value="<?php echo $usuario["sector"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="sEmail"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                 <input type="text" class="form-control" onfocus="focoInput('sEmail');" onBlur="blurInput('sEmail')" id="email" name="email" placeholder="Email..." value="<?php echo $usuario["email"]; ?>">
-              </div></div><br>
+              </div></div></div>
+              <div class="row">
               <div class="form-group">
                 <div class="input-group">
                 <span class="input-group-addon" id="sRol"><i class="glyphicon glyphicon-chevron-right" ></i></span>
@@ -101,9 +125,9 @@ border-color:#151525;
                     <option selected="selected" value="U">Usuario</option>
                   <?php } ?>                    
                 </select>
-              </div></div><br>
+              </div></div></div>
               
-              
+              <br><br>
               <button type="submit" class="btn alert-info btn-lg">MODIFICAR USUARIO</button>
               
             </form>
@@ -115,7 +139,7 @@ border-color:#151525;
           
         </div>
         <div class="col-md-2"></div>    
-    </div>
+    
 
 
 </body>
