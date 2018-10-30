@@ -23,7 +23,7 @@ class Tickets extends CI_Controller {
 	public function Agregar(){
 		$this->load->library("form_validation");
 		
-		if ($this->session->userdata("rol") == 'A') { 
+		if ($this->session->userdata("rol") != 'U') { 
 			$this->form_validation->set_rules('txtQuienSolicita', 'txtQuienSolicita', 'required|trim');
 			$this->form_validation->set_rules('txtSector', 'txtSector', 'required|trim');
 		}
@@ -37,7 +37,7 @@ class Tickets extends CI_Controller {
 			
 			$datos = array();
 			
-			if ($this->session->userdata("rol") == 'A') {
+			if ($this->session->userdata("rol") != 'U') {
 				$datos["quien"] = set_value("txtQuienSolicita");
 				$datos["sector"] = set_value("txtSector");
 			}
@@ -74,8 +74,9 @@ class Tickets extends CI_Controller {
 			}
 				
 				
-			$this->ticket_model->alta($datos);
-			
+			$ticket_id = $this->ticket_model->alta($datos);
+			$ticket = $this->ticket_model->obtener_por_id($ticket_id);
+
 			//cargamos la libreria email de ci
 			$this->load->library("email");
 			//configuracion para gmail
@@ -105,7 +106,7 @@ class Tickets extends CI_Controller {
 			if ($this->session->userdata("email"))
 			redirect('usuarios/index/OK');
 		else
-			redirect('welcome/index/OK');
+			redirect('welcome/index/OK/'.$ticket["codigo"]);
 		}
 		else{
 			if ($this->session->userdata("email"))

@@ -27,7 +27,7 @@ class Usuarios extends CI_Controller {
 		}
 		else
 		{
-			redirect('#');	
+			redirect('welcome/index/PROHIBIDO');	
 		}
 	}
 	

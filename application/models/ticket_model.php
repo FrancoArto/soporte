@@ -13,6 +13,10 @@ class Ticket_model extends CI_Model {
 		$this->db->set("codigo",$datos["codigo"]);
 		
 		$this->db->insert("tickets", $datos);
+
+		$insert_id = $this->db->insert_id();
+
+		return $insert_id;
 	}
 	
 	function baja($ticket_id = "")

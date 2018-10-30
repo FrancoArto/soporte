@@ -19,10 +19,11 @@ class Welcome extends CI_Controller {
 	 */
 
 	protected $datos = array();
-	public function index($op = "")
+	public function index($op = "", $ticket_id = "")
 	{
 		$this->session->sess_destroy();
 		$this->datos["op"] = $op;
+		$this->datos["ticket_id"] = $ticket_id;
 		$this->load->view('principal', $this->datos);
 	}
 }
