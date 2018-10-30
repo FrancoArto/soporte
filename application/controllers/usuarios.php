@@ -8,7 +8,7 @@ class Usuarios extends CI_Controller {
 		$this->load->model('usuarios_model');
 	}
 	
-	public function index($op = "")
+	public function index($op = "", $ticket_id = "")
 	{
 		if($sesion = $this->session->userdata("usuario_id"))
 		{

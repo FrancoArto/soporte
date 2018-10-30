@@ -207,7 +207,7 @@ $this->load->view("barra");
                         else
                         {
                             if ($op == "OK") {
-                                ?> <span class="alert alert-success">Ticket generado con exito</span>
+                                ?> <span class="alert alert-success">Ticket generado con exito. Su codigo es: <?php echo $ticket_id ?></span>
                                 <?php
                             }
                         }
