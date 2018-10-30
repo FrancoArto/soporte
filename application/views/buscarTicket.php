@@ -32,10 +32,17 @@ legend{
 	}
 	
 .txt{ background-color:#1D1E1E;
-color:#313131;
+color:#FFFFFF;
 border:inset;
 border-color:#151525;
 }
+
+.referencias{
+	color:#FFFFFF;
+	font-size:24px;
+	letter-spacing:3px;
+	}
+
 
 
 </style>
@@ -55,66 +62,96 @@ border-color:#151525;
 <legend style="letter-spacing:15px; font-size:36px">BUSQUEDA DE TICKET</legend>
 <br>
 <br>
-
-<div class="row">
-  <div class="col-md-2"></div>
+<br>
+ 
+  <div class="col-md-2" style="text-align:right"> 
+  			<div class="row form-group"><span class="referencias">&#8226;Titulo:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Descripcion:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Quien:</span> </div>
+           
+            <div class="row form-group"><span class="referencias">&#8226;Sector:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Prioridad:</span> </div>
+           
+            <div class="row form-group"><span class="referencias">&#8226;Estado:</span> </div>
+            
+            <div class="row form-group"><span class="referencias">&#8226;Fecha limite:</span> </div>
+  </div>   
   <div class="col-md-8">
+  <div CLASS="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="txtTitulo"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('sTitulo');" onBlur="blurInput('sTitulo')" id="txtTitulo" name="txtTitulo" placeholder="Titulo..." value="<?php echo $ticket["titulo"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+   
+    <div class="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="txtDescripcion"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('txtDescripcion');" onBlur="blurInput('sDescripcion')" id="txtDescripcion" name="txtDescripcion" placeholder="Descripcion..." value="<?php echo $ticket["descripcion"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+    
+    <div class="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="txtQuienSolicita"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('sQuien');" onBlur="blurInput('sQuien')" id="txtQuienSolicita" name="txtQuienSolicita" placeholder="Quien Solicita..." value="<?php echo $ticket["quien"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+   
+    <div class="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="txtSector"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('sSector');" onBlur="blurInput('sSector')" id="txtSector" name="txtSector" placeholder="Sector..." value="<?php echo $ticket["sector"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+   
+    <div class="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="txtPrioridad"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="txtPrioridad" name="txtPrioridad" placeholder="Prioridad..." value="<?php echo $ticket["prioridad_nombre"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+ 
+    <div class="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="fecha_limite"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('sEstado');" onBlur="blurInput('sEstado')" id="estado" name="estado" placeholder="" value="<?php echo $ticket["estado_nombre"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+   
+    <div class="row">
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon" id="fecha_limite"><i class="glyphicon glyphicon-chevron-right" ></i></span>
         <input readonly type="text" class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="fecha_limite" name="fecha_limite" placeholder="Para cuando..." value="<?php echo $ticket["fecha_limite"]; ?>">
       </div>
     </div>
-    <br>
+    </div>
+    <br><br>
+    <div class="row">
     <div class="form-group" style="text-align:center">
       <span class="btn btn-info"><a href="<?php if ($this->session->userdata("email")) {echo site_url('/usuarios/index');}
       else {echo site_url('/welcome/index');}?>">Volver</a></span>
     </div>
   </div>
+  </div>
   <div class="col-md-2"></div>
-</div>    
+    
 
 
 

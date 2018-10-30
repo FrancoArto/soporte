@@ -34,7 +34,7 @@ legend{
 
 	
 .txt{ background-color:#1D1E1E;
-color:#313131;
+color:#FFFFFF;
 border:inset;
 border-color:#151525;
 }

@@ -55,7 +55,7 @@
 			}
 	 
 	 .txt{ background-color:#1D1E1E;
-color:#313131;
+color:#FFFFFF;
 border:inset;
 border-color:#151525;
 }
@@ -72,11 +72,14 @@ $this->load->view("barra");
 
 
 <section>
+<div class="row" style="text-align:center">
+<span style="letter-spacing:6px; color:#FFFFFF; text-align:center; font-size:20px">COMPLETE LOS DATOS PARA GENERAR TICKET</span></div>
+<br><br>
 
                              <form action="<?php echo site_url("tickets/Agregar") ?>" method="post">
   <div class="row">
-                         <div class="col-md-1"></div>
-                       <div class="col-md-4">
+                         <div class="col-md-3"></div>
+                       <div class="col-md-6">
                     
                         <div class="input-group">
                             <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtTitulo" name="txtTitulo" type="text" placeholder="Ingrese titulo..." class="form-control input-md txt" aria-describedby="sizing-addon2">
@@ -91,8 +94,8 @@ $this->load->view("barra");
                         
                         
   <div class="row">
-                         <div class="col-md-1"></div>
-                       <div class="col-md-4">
+                         <div class="col-md-3"></div>
+                       <div class="col-md-6">
                     
                         <div class="input-group">
                             <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtDescripcion" name="txtDescripcion" type="text" placeholder="Ingrese descripcion..." class="form-control input-md txt" aria-describedby="sizing-addon2">
@@ -109,8 +112,8 @@ $this->load->view("barra");
                         
    <?php if ($this->session->userdata("rol") == 'A') { ?>                     
   <div class="row">
-                         <div class="col-md-1"></div>
-                       <div class="col-md-4">
+                         <div class="col-md-3"></div>
+                       <div class="col-md-6">
                     
                         <div class="input-group">
                             <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtQuienSolicita" name="txtQuienSolicita" type="text" placeholder="Quien lo solicita?" class="form-control input-md txt" aria-describedby="sizing-addon2">
@@ -129,8 +132,8 @@ $this->load->view("barra");
                         
                         
   <div class="row">
-                         <div class="col-md-1"></div>
-                       <div class="col-md-4">
+                         <div class="col-md-3"></div>
+                       <div class="col-md-6">
                     
                         <div class="input-group">
                             <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtSector" name="txtSector" type="text" placeholder="Ingrese sector..." class="form-control input-md txt" aria-describedby="sizing-addon2">
@@ -148,11 +151,11 @@ $this->load->view("barra");
                         
                         
   <div class="row">
-                         <div class="col-md-1"></div>
-                       <div class="col-md-4">
+                         <div class="col-md-3"></div>
+                       <div class="col-md-6">
                     
                        <div class="input-group">
-                        <span class="input-group-addon" id="sPrioridad"><i class="glyphicon glyphicon-chevron-right" ></i></span>
+                        <span class="input-group-addon alert-info" id="sPrioridad"><i class="glyphicon glyphicon-chevron-right" ></i></span>
                         <select class="form-control" onfocus="focoInput('sPrioridad');" onBlur="blurInput('sPrioridad')" id="txtPrioridad" name="txtPrioridad">
                 	        <option value="1">Prioridad Alta</option>
                             <option value="2">Prioridad Media</option>                    
@@ -171,8 +174,8 @@ $this->load->view("barra");
                         
                         
   <div class="row">
-                         <div class="col-md-1"></div>
-                       <div class="col-md-4">
+                         <div class="col-md-3"></div>
+                       <div class="col-md-6">
                     
                         <div class="input-group">
                             <span class="input-group-addon alert-info" id="sizing-addon2"><i class="glyphicon glyphicon-chevron-right" ></i></span> <input id="txtParaCuando" name="txtParaCuando" type="date" placeholder="Para cuando?" class="form-control input-md txt" aria-describedby="sizing-addon2">
@@ -188,11 +191,11 @@ $this->load->view("barra");
                         
                         
   
-
+<br>
                         <div class="row">
                         <br>
-                        	<div class="col-md-3"></div>
-                            <div class="col-md-4">
+                        	<div class="col-md-5"></div>
+                            <div class="col-md-6">
                             <button id="btnGenerar" name="generar" class="btn btn-primary btn-lg">GENERAR</button>
                             
                             <div class="form-group"> <br>
