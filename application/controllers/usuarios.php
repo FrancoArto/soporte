@@ -13,6 +13,7 @@ class Usuarios extends CI_Controller {
 		if($sesion = $this->session->userdata("usuario_id"))
 		{
 			$this->datos["op"] = $op;
+			$this->datos["ticket_id"] = $ticket_id;
 			$this->load->view('usuario', $this->datos);
 		}
 	}
