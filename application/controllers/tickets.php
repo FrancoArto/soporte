@@ -104,7 +104,7 @@ class Tickets extends CI_Controller {
 			
 
 			if ($this->session->userdata("email"))
-			redirect('usuarios/index/OK'.$ticket["codigo"]);
+			redirect('usuarios/index/OK/'.$ticket["codigo"]);
 		else
 			redirect('welcome/index/OK/'.$ticket["codigo"]);
 		}
